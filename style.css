@@ -12,3 +12,8 @@ p {
 	line-height: 1.6;
 	font-weight: 500;
 }
+.api {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
