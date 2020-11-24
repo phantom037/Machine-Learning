@@ -1,0 +1,13 @@
+body {
+	height: 100%;
+	font-family: 'Roboto', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+p {
+	font-size: 15px;
+	color: #585858;
+	line-height: 1.6;
+	font-weight: 500;
+}
