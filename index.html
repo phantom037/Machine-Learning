@@ -24,6 +24,7 @@
     const URL = "https://teachablemachine.withgoogle.com/models/G4TthHsQL/";
 
     let model, webcam, labelContainer, maxPredictions;
+    let last_label = '';
 
     // Load the image model and setup the webcam
     async function init() {
@@ -62,8 +63,13 @@
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
-        labelContainer.innerHTML =  prediction[0].className + ": " + prediction[0].probability.toFixed(2) * 100 + "%";
-
+	const label = prediction[0].className;
+	responsiveVoice.speak(label, "Vietnamese Male");
+	if( last_label != label){
+	     last_label = label;
+	     responsiveVoice.speak(label, "Vietnamese Male");
+	     labelContainer.innerHTML =  prediction[0].className + ": " + prediction[0].probability.toFixed(2) * 100 + "%";
+	}
     }
 </script>
 </body>
