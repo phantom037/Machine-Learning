@@ -64,12 +64,11 @@
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
 	const label = prediction[0].className;
-	responsiveVoice.speak(label, "Vietnamese Male");
 	if( last_label != label){
 	     last_label = label;
-	     responsiveVoice.speak(label, "Vietnamese Male");
-	     labelContainer.innerHTML =  prediction[0].className + ": " + prediction[0].probability.toFixed(2) * 100 + "%";
+	     responsiveVoice.speak(label, "Vietnamese Female");
 	}
+	labelContainer.innerHTML =  prediction[0].className + ": " + prediction[0].probability.toFixed(2) * 100 + "%";
     }
 </script>
 </body>
