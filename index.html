@@ -63,7 +63,11 @@
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predictTopK(webcam.canvas);
-	
+	const label = prediction[0].className;
+	if(last_label != label){
+	     last_label = label;
+	     responsiveVoice.speak(label, "Vietnamese Female");
+	}
 	labelContainer.innerHTML =  prediction[0].className + ": " + prediction[0].probability.toFixed(2) * 100 + "%";
     }
 </script>
