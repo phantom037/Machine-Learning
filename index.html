@@ -10,7 +10,6 @@
 
 <body>
 <script src="https://code.responsivevoice.org/responsivevoice.js?key=t39iMTPN"></script>
-<api> <p>
 <div>Teachable Machine Image Model</div>
 <button type="button" onclick="init()">Start</button>
 <div id="webcam-container"></div>
@@ -25,7 +24,7 @@
     const URL = "https://teachablemachine.withgoogle.com/models/G4TthHsQL/";
 
     let model, webcam, labelContainer, maxPredictions;
-    let last_label = '';
+    
 
     // Load the image model and setup the webcam
     async function init() {
@@ -62,14 +61,8 @@
         // predict can take in an image, video or canvas html element
         const prediction = await model.predictTopK(webcam.canvas, 1);
         labelContainer.innerHTML =  prediction[0].className + ": " + prediction[0].probability.toFixed(2) * 100 + "%";
-	const label = prediction[0].className;
-	if( last_label != label){
-	    last_label = label;
-	    responsiveVoice.speak(label, "Vietnamese Female");
-	}
+	
 </script>
-	</p>
-	</api>
 </body>
 
 </html>
