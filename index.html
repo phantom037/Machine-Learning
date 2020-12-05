@@ -66,7 +66,7 @@
 	const label = prediction[0].className;
 	if(last_label != label){
 	     last_label = label;
-	     responsiveVoice.speak(label, "Vietnamese Female");
+	     responsiveVoice.speak("Xin chào" + label, "Vietnamese Female");
 	}
 	labelContainer.innerHTML =  prediction[0].className + ": " + prediction[0].probability.toFixed(2) * 100 + "%";
     }
